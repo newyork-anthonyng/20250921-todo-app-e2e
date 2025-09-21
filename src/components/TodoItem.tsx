@@ -40,11 +40,12 @@ export function TodoItem({
   };
 
   return (
-    <div className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg hover:shadow-sm transition-shadow">
+    <div className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg hover:shadow-sm transition-shadow" data-testid="todo-item">
       <input
         type="checkbox"
         checked={todo.completed}
         onChange={() => onToggle(todo.id)}
+        data-testid="todo-checkbox"
         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
       />
       
@@ -75,6 +76,7 @@ export function TodoItem({
       ) : (
         <>
           <span
+            data-testid="todo-text"
             className={`flex-1 ${
               todo.completed
                 ? 'line-through text-gray-500'
@@ -92,6 +94,7 @@ export function TodoItem({
             </button>
             <button
               onClick={() => onDelete(todo.id)}
+              data-testid="delete-todo-button"
               className="px-3 py-1 text-red-600 hover:bg-red-50 rounded transition-colors"
             >
               Delete
